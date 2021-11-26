@@ -3,17 +3,17 @@ import os
 import  tensorflow as tf
 import numpy as np
 import time
-
+gpus  = tf.config.list_physical_devices('GPU')
+for gpu in gpus:
+    tf.config.experimental.set_memory_growth(gpu,True)
 
 
 
 
 def  predict():
 
-        gpus  = tf.config.list_physical_devices('GPU')
-        for gpu in gpus:
-            tf.config.experimental.set_memory_growth(gpu,True)
-        img = cv2.imread(f"test1.png")
+        
+        img = cv2.imread(f"test.png")
         img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
         img= cv2.resize(img,(96,96))
       
